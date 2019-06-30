@@ -1,5 +1,6 @@
 var express = require('express')
 var path = require('path')
+var key = require('./key')
 
 var app = express()
 var PORT = 3000
@@ -27,11 +28,9 @@ app.get('/api/contacts', (req, res) => {
 
 app.get('/api/contacts/:name', (req, res) => {
   var nameToFind = req.params.name
-
   var info = contacts.filter(info => {
     return info.name == nameToFind
   })
-
   res.json(info)
 })
 
