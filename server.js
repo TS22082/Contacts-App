@@ -5,6 +5,14 @@ var key = require('./key')
 var app = express()
 var PORT = 3000
 
+var connection = mysql.createConnection({
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: key.secret,
+  database: 'ContactsDB'
+})
+
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
